@@ -13,9 +13,9 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
   };
 
   return (
-    <div className={`search-component fixed inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20 " : "translate-x-full hidden"}`}>
-      <h2 className={`text-3xl font-semibold p-2 m-1`}> 검색</h2>
-      <form onSubmit={handleSearchSubmit} className={`flex flex-col justify-between p-4 bg-white ${showSearch ? "max-w-xs " : ""}`}>
+    <div className={`search-component fixed inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20" : "translate-x-full hidden"}`}>
+      <h2 className={`text-2xl font-semibold p-4 m-1`}> 검색</h2>
+      <form onSubmit={handleSearchSubmit} className={`flex flex-col justify-between p-4 bg-white`}>
         <div className="relative">
           <input
             type="text"
@@ -28,7 +28,7 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
             //     handleSearchSubmit();
             //   }
             // }}
-            className="p-2 pr-10 border rounded-md"
+            className="p-2 border-1 rounded-md drop-shadow-md "
           />
           {searchText && (
             <button
