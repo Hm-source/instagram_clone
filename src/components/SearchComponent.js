@@ -13,8 +13,8 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
   };
 
   return (
-    <div className={`search-component fixed inset-y-0 left-0 ease-in-out duration-300 ${showSearch ? "translate-x-40 " : "translate-x-full"}`}>
-      <form onSubmit={handleSearchSubmit} className={`h-full flex flex-col justify-center p-4 bg-white max-w-xs`}>
+    <div className={`search-component fixed inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20 " : "translate-x-full"}`}>
+      <form onSubmit={handleSearchSubmit} className={`h-full flex flex-col justify-center p-4 bg-white ${showSearch ? "max-w-xs " : "hidden"}`}>
         <input
           type="text"
           placeholder="검색"
