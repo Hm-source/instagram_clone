@@ -3,26 +3,28 @@ import { BiSearchAlt2 } from 'react-icons/bi'
 import { ReactComponent as XButton } from "../asset/svg/x-button.svg"
 const SearchComponent = ({ onSearch, onClose, showSearch }) => {
   const [searchText, setSearchText] = useState("");
-
+  const [data, setData] = useState([])
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
 
   const handleSearchSubmit = (event) => {
+    if (event.target.value === 'enter') console.log(event);
     event.preventDefault();
     onSearch(searchText);
   };
-  const data = [
-    // {
-    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '케이스'
-    // },
-    // {
-    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '에어팟'
-    // },
-    // {
-    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '아이폰'
-    // }
-  ]
+  const activeEnter = (e) => {
+    if (e.key === "Enter") {
+      data.push({
+        icon: <BiSearchAlt2 className="w-6 h-6" />, text: searchText
+      })
+    }
+  }
+
+  const deleteData = (e) => {
+    e.preventDefault();
+//삭제 구현해야 함.
+  }
 
   return (
     <div className={`search-component fixed w-72 inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20" : "hidden"}`}>
@@ -35,6 +37,7 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
             value={searchText}
             onChange={handleSearchChange}
             className="p-2 rounded-md drop-shadow-md w-64 bg-gray-light"
+            onKeyDown={(e) => activeEnter(e)}
           />
           {searchText && (
             <button
@@ -61,15 +64,19 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
         </div>
         <ul className="pt-2 pb-4 space-y-1 text-md">
           {data && data.length > 0 ? data.map((item, index) => (
-            <li key={index} className="flex items-center rounded-sm">
+            <li key={index} className="flex items-center rounded-sm  hover:bg-gray-light">
               <button
-                className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light`}
+                className={`flex flex-1 items-center p-3 space-x-3 rounded-md`}
                 onClick={item.onClick}
               >
-                <div className="m-1">
+                <div className="m-1 rounded-full border-solid border p-2">
                   {item.icon}
                 </div>
-                  <span >{item.text}</span>
+                <span >{item.text}</span>
+              </button>
+
+              <button onClick={() => deleteData} className="float-right m-1" >
+                <XButton width="2rem" height="2rem" />
               </button>
             </li>
           )) : <div className="text-center translate-y-56">최근 검색 내역 없음.</div>}
