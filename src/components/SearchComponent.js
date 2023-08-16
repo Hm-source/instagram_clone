@@ -13,7 +13,7 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
   };
 
   return (
-    <div className={`search-component fixed inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20" : "translate-x-full hidden"}`}>
+    <div className={`search-component fixed inset-y-0 left-0 duration-300 ease-in ${showSearch ? "translate-x-20" : "hidden"}`}>
       <h2 className={`text-2xl font-semibold p-4 m-1`}> 검색</h2>
       <form onSubmit={handleSearchSubmit} className={`flex flex-col justify-between p-4 bg-white`}>
         <div className="relative">
@@ -22,12 +22,6 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
             placeholder="검색"
             value={searchText}
             onChange={handleSearchChange}
-            // onKeyPress={(e) => {
-            //   if (e.key === "Enter") {
-            //     e.preventDefault();
-            //     handleSearchSubmit();
-            //   }
-            // }}
             className="p-2 border-1 rounded-md drop-shadow-md "
           />
           {searchText && (

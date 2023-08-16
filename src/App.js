@@ -1,14 +1,15 @@
 import './App.css';
-import Layout from './components/Layout';
-import Feed from './components/Feed';
-
+import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App({ Component, pageProps }) {
   return (
-    <div>
-    <Feed/>
-    <Layout />
-    
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

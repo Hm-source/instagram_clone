@@ -42,61 +42,62 @@ const Layout = (props) => {
   ];
 
   return (
-
-    <div className="flex">
-      <div className={`overflow-hidden bg-white duration-300 ease-in-out ${showSearch ? "w-20" : "w-60"} shadow h-screen p-3`}>
-        <div className="space-y-3">
-          <div className="flex items-center p-3 space-x-3 m-1">
-            {!showSearch ? <Instagram /> : <InstagramIcon />}
-          </div>
-          <div className="flex-1 container">
-            <ul className="pt-2 pb-4 space-y-1 text-md">
-              {navigationItems.map((item, index) => (
-                <li key={index} className="flex items-center rounded-sm">
-                  <button
-                    className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light`}
-                    onClick={item.onClick}
-                  >
-                    <div className="m-1">
-                      {item.icon}
-                    </div>
-                    {!showSearch ? (
-                      <span >{item.text}</span>
-                    ) : (
-                      null
-                    )}
-                  </button>
-                </li>
-              ))}
-            </ul>
-
-          </div>
-          <div className="fixed bottom-3">
-            <div className="flex items-center rounded-sm">
-              <button
-                className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light w-48`}
-              >
-                <div className="m-1">
-                  <AiOutlineMenu className="w-6 h-6" />
-                </div>
-                {!showSearch ? (
-                  <span >{'더 보기'}</span>
-                ) : (
-                  null
-                )}
-              </button>
+    <aside>
+      <div className="fixed">
+        <div className={`overflow-hidden bg-white duration-300 ease-in-out ${showSearch ? "w-20" : "w-60"} shadow h-screen p-3`}>
+          <div className="space-y-3">
+            <div className="flex items-center p-3 space-x-3 m-1">
+              {!showSearch ? <Instagram /> : <InstagramIcon />}
             </div>
+            <div className="flex-1 container">
+              <ul className="pt-2 pb-4 space-y-1 text-md">
+                {navigationItems.map((item, index) => (
+                  <li key={index} className="flex items-center rounded-sm">
+                    <button
+                      className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light`}
+                      onClick={item.onClick}
+                    >
+                      <div className="m-1">
+                        {item.icon}
+                      </div>
+                      {!showSearch ? (
+                        <span >{item.text}</span>
+                      ) : (
+                        null
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+            <div className="fixed bottom-3">
+              <div className="flex items-center rounded-sm">
+                <button
+                  className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light w-48`}
+                >
+                  <div className="m-1">
+                    <AiOutlineMenu className="w-6 h-6" />
+                  </div>
+                  {!showSearch ? (
+                    <span >{'더 보기'}</span>
+                  ) : (
+                    null
+                  )}
+                </button>
+              </div>
+            </div>
+
           </div>
-
+        </div>
+        <div className={`mt-12`}>
+          <div className={`duration-300 ease-in-out`}>
+            <SearchComponent showSearch={showSearch} onSearch={handleSearch} onClose={handleSearchToggle} />
+          </div>
         </div>
       </div>
-      <div className={`container mx-auto mt-12`}>
-        <div className={`duration-300 ease-in-out`}>
-          <SearchComponent showSearch={showSearch} onSearch={handleSearch} onClose={handleSearchToggle} />
-        </div>
-      </div>
+    </aside>
 
-    </div>
   );
 };
 
