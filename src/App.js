@@ -5,8 +5,9 @@ import Feed from './components/Feed';
 function App({ Component, pageProps }) {
   return (
     <div>
+    <Feed/>
     <Layout />
-    <Feed />
+    
     </div>
   )
 }
