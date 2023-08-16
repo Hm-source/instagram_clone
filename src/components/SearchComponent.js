@@ -13,15 +13,15 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
     onSearch(searchText);
   };
   const data = [
-    {
-      icon: <BiSearchAlt2 className="w-6 h-6" />, text: '케이스'
-    },
-    {
-      icon: <BiSearchAlt2 className="w-6 h-6" />, text: '에어팟'
-    },
-    {
-      icon: <BiSearchAlt2 className="w-6 h-6" />, text: '아이폰'
-    }
+    // {
+    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '케이스'
+    // },
+    // {
+    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '에어팟'
+    // },
+    // {
+    //   icon: <BiSearchAlt2 className="w-6 h-6" />, text: '아이폰'
+    // }
   ]
 
   return (
@@ -60,7 +60,7 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
           {'최근 검색 항목'}
         </div>
         <ul className="pt-2 pb-4 space-y-1 text-md">
-          {data.map((item, index) => (
+          {data && data.length > 0 ? data.map((item, index) => (
             <li key={index} className="flex items-center rounded-sm">
               <button
                 className={`flex flex-1 items-center p-3 space-x-3 rounded-md hover:bg-gray-light`}
@@ -72,7 +72,7 @@ const SearchComponent = ({ onSearch, onClose, showSearch }) => {
                   <span >{item.text}</span>
               </button>
             </li>
-          ))}
+          )) : <div className="text-center translate-y-56">최근 검색 내역 없음.</div>}
         </ul>
       </div>
     </div>
