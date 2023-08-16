@@ -1,0 +1,33 @@
+.feed {
+    max-width: 600px;
+    margin: 0 auto;
+    padding:20px
+}
+
+.post {
+    border:1px solid #ccc;
+    margin-bottom:20px;
+    padding: 10px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.profileImg {
+    width: 30px;
+    height:30px;
+    margin-right: 15px;
+    border-radius: 50%;
+} 
+
+.imageUrl {
+    max-width:100%;
+    margin: none;
+}
+
+.caption {
+    margin-top: 10px;
+}
